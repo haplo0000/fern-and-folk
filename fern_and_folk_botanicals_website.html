@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Fern & Folk Botanicals</title>
+<style>
+:root{
+  --forest:#22352b;
+  --moss:#6f8f5f;
+  --sage:#b8c8a5;
+  --cream:#f6f0df;
+  --clay:#c9865b;
+  --amber:#e5b95f;
+  --ink:#1d241f;
+  --muted:#647064;
+  --white:#fffaf0;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: "Segoe UI", system-ui, Arial, sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+}
+.hero{
+  min-height:92vh;
+  background:
+    linear-gradient(rgba(34,53,43,.65),rgba(34,53,43,.65)),
+    radial-gradient(circle at 20% 20%, rgba(229,185,95,.28), transparent 30%),
+    linear-gradient(135deg,#2d4435,#526f4c);
+  color:var(--white);
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:38px 20px;
+}
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:10;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 7vw;
+  background:rgba(34,53,43,.78);
+  backdrop-filter:blur(12px);
+  color:var(--white);
+}
+.logo{font-weight:900;letter-spacing:.08em}
+nav a{color:var(--white);text-decoration:none;margin-left:22px;font-weight:600}
+.hero h1{
+  font-size:clamp(42px,8vw,88px);
+  line-height:.95;
+  margin:0 0 20px;
+}
+.hero p{
+  font-size:21px;
+  max-width:760px;
+  margin:0 auto 30px;
+  color:#f6ead0;
+}
+.btn{
+  display:inline-block;
+  background:var(--amber);
+  color:#2b2618;
+  padding:15px 24px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:900;
+  box-shadow:0 14px 30px rgba(0,0,0,.22);
+}
+.btn.secondary{
+  background:transparent;
+  color:var(--white);
+  border:2px solid rgba(255,255,255,.7);
+  box-shadow:none;
+  margin-left:10px;
+}
+section{padding:76px 7vw}
+.section-title{
+  font-size:42px;
+  margin:0 0 14px;
+  color:var(--forest);
+}
+.lead{
+  max-width:760px;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.6;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:34px;
+}
+.card{
+  background:var(--white);
+  border-radius:26px;
+  padding:24px;
+  box-shadow:0 18px 44px rgba(34,53,43,.12);
+  border:1px solid rgba(34,53,43,.08);
+}
+.product-img{
+  height:170px;
+  border-radius:22px;
+  display:grid;
+  place-items:center;
+  font-size:62px;
+  background:linear-gradient(135deg,#e7dcc1,#bfd0aa);
+  margin-bottom:18px;
+}
+.card h3{font-size:24px;margin:0 0 8px;color:var(--forest)}
+.price{font-size:22px;font-weight:900;color:var(--clay)}
+.tag{
+  display:inline-block;
+  padding:6px 10px;
+  background:#eef3e5;
+  color:#536b45;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:800;
+  margin:5px 5px 0 0;
+}
+.story{
+  background:#e7dcc1;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:34px;
+  align-items:center;
+}
+.story-box{
+  background:rgba(255,250,240,.72);
+  padding:34px;
+  border-radius:32px;
+}
+.values{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  margin-top:30px;
+}
+.value{
+  background:rgba(255,250,240,.82);
+  padding:22px;
+  border-radius:22px;
+}
+.bundle{
+  background:var(--forest);
+  color:var(--white);
+}
+.bundle .section-title{color:var(--white)}
+.bundle .lead{color:#d8e0d3}
+.bundle .card{
+  background:#31483a;
+  color:var(--white);
+  border-color:rgba(255,255,255,.1);
+}
+.bundle .card h3{color:#fff}
+.notice{
+  background:#fff7dc;
+  border-left:7px solid var(--amber);
+  padding:24px;
+  border-radius:18px;
+  color:#4d4228;
+  line-height:1.55;
+  margin-top:24px;
+}
+.contact{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+}
+form{
+  background:var(--white);
+  border-radius:28px;
+  padding:28px;
+  box-shadow:0 18px 44px rgba(34,53,43,.12);
+}
+input,textarea,select{
+  width:100%;
+  padding:14px 16px;
+  border-radius:14px;
+  border:1px solid #d6ddcc;
+  margin:9px 0 16px;
+  font-size:16px;
+  background:#fffef7;
+}
+button{
+  border:0;
+  cursor:pointer;
+}
+footer{
+  background:#17251d;
+  color:#dbe5d6;
+  padding:28px 7vw;
+  text-align:center;
+}
+@media(max-width:900px){
+  .grid,.story,.values,.contact{grid-template-columns:1fr}
+  nav{position:static;gap:12px;flex-direction:column}
+  nav a{margin:0 8px}
+  .btn.secondary{display:block;margin:12px auto 0}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">FERN & FOLK</div>
+  <div>
+    <a href="#shop">Shop</a>
+    <a href="#story">Story</a>
+    <a href="#order">Order</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div>
+    <h1>Handmade plant magic for everyday life.</h1>
+    <p>Small-batch botanical sprays, essential oil blends, bath goods, and other earthy little things made with care on the kitchen table.</p>
+    <a class="btn" href="#shop">Shop the Goods</a>
+    <a class="btn secondary" href="#order">Custom Order</a>
+  </div>
+</header>
+
+<section id="shop">
+  <h2 class="section-title">Small-Batch Favourites</h2>
+  <p class="lead">Simple, earthy products for patios, cabins, camping bags, bathrooms, bedrooms, and people who would rather smell like cedar than a chemical aisle.</p>
+
+  <div class="grid">
+    <div class="card">
+      <div class="product-img">🌿</div>
+      <h3>Woodspray Botanical Bug Mist</h3>
+      <p>A fresh outdoor body spray with cedarwood, lemongrass, lavender, and witch hazel.</p>
+      <p class="price">$16</p>
+      <span class="tag">camping</span><span class="tag">patio</span><span class="tag">summer</span>
+    </div>
+    <div class="card">
+      <div class="product-img">🌙</div>
+      <h3>Moon Balm Sleep Roller</h3>
+      <p>A calming roll-on blend with lavender, chamomile, and sweet orange for wind-down rituals.</p>
+      <p class="price">$14</p>
+      <span class="tag">bedside</span><span class="tag">calm</span>
+    </div>
+    <div class="card">
+      <div class="product-img">🔥</div>
+      <h3>Cabin Smoke Room Spray</h3>
+      <p>Warm cedar, clove, vanilla, and pine. Basically a cozy cabin in a little glass bottle.</p>
+      <p class="price">$18</p>
+      <span class="tag">home</span><span class="tag">cozy</span>
+    </div>
+    <div class="card">
+      <div class="product-img">🛁</div>
+      <h3>Hippie Tub Soak</h3>
+      <p>Mineral salt, oats, flowers, and essential oils for a long bath and a better mood.</p>
+      <p class="price">$20</p>
+      <span class="tag">bath</span><span class="tag">gift</span>
+    </div>
+    <div class="card">
+      <div class="product-img">🕯️</div>
+      <h3>Patchouli-Free Hippie Kit</h3>
+      <p>For people who want earthy but not “head shop in 1997.” Includes three gentle blends.</p>
+      <p class="price">$36</p>
+      <span class="tag">bundle</span><span class="tag">popular</span>
+    </div>
+    <div class="card">
+      <div class="product-img">✨</div>
+      <h3>Custom Oil Blend</h3>
+      <p>Pick a mood: focus, calm, sleep, fresh house, outdoor days, or “I don’t know, just make it nice.”</p>
+      <p class="price">from $18</p>
+      <span class="tag">custom</span><span class="tag">made to order</span>
+    </div>
+  </div>
+
+  <div class="notice">
+    <strong>Friendly safety note:</strong> Essential oil products are not medicines and are not intended to diagnose, treat, cure, or prevent disease. Patch test first. Avoid eyes, pets, pregnancy use, infants, and sensitive skin unless cleared by a qualified professional. Bug spray wording should stay as “botanical outdoor mist” unless the product is registered/approved where required.
+  </div>
+</section>
+
+<section id="story" class="story">
+  <div class="story-box">
+    <h2 class="section-title">Made by hand, not by a factory.</h2>
+    <p class="lead">Fern & Folk is for people who like practical things with a little ritual in them. Every batch is mixed, labelled, and packed by hand using simple ingredients, reusable glass where possible, and scents that feel like forests, clean laundry, old cabins, gardens, and moonlight.</p>
+  </div>
+  <div class="values">
+    <div class="value"><h3>🌲 Earthy</h3><p>Wood, herb, citrus, flower, smoke, rain.</p></div>
+    <div class="value"><h3>🫙 Small Batch</h3><p>Freshly made in limited runs.</p></div>
+    <div class="value"><h3>🎁 Giftable</h3><p>Bundles, custom labels, seasonal sets.</p></div>
+    <div class="value"><h3>🧪 Clear</h3><p>Ingredients listed plainly.</p></div>
+  </div>
+</section>
+
+<section class="bundle">
+  <h2 class="section-title">Starter Bundles</h2>
+  <p class="lead">Easy choices for markets, gifts, and people who don’t want to overthink it.</p>
+  <div class="grid">
+    <div class="card">
+      <h3>Camping Witch Kit</h3>
+      <p>Bug mist, after-sun spray, cedar room spray.</p>
+      <p class="price">$44</p>
+    </div>
+    <div class="card">
+      <h3>Sleepy Goblin Kit</h3>
+      <p>Sleep roller, pillow mist, bath soak.</p>
+      <p class="price">$42</p>
+    </div>
+    <div class="card">
+      <h3>Market Table Sampler</h3>
+      <p>Six mini bottles across the core scent line.</p>
+      <p class="price">$30</p>
+    </div>
+  </div>
+</section>
+
+<section id="order">
+  <h2 class="section-title">Order or Ask a Question</h2>
+  <p class="lead">This prototype uses a fake form. In the real version, this can connect to email, Square, Shopify, Stripe, or a simple Google Form.</p>
+
+  <div class="contact">
+    <form onsubmit="event.preventDefault(); alert('Prototype only: this would send the order request.');">
+      <label>Name</label>
+      <input placeholder="Your name">
+      <label>Email</label>
+      <input type="email" placeholder="you@example.com">
+      <label>What are you interested in?</label>
+      <select>
+        <option>Woodspray Botanical Bug Mist</option>
+        <option>Sleep Roller</option>
+        <option>Room Spray</option>
+        <option>Bath Soak</option>
+        <option>Bundle</option>
+        <option>Custom Blend</option>
+      </select>
+      <label>Message</label>
+      <textarea rows="5" placeholder="Tell me what you want, scent preferences, pickup/delivery, etc."></textarea>
+      <button class="btn">Send Request</button>
+    </form>
+
+    <div class="card">
+      <h3>Local pickup + markets</h3>
+      <p>Perfect for a small home business: local pickup, weekend markets, custom orders, seasonal drops, and Instagram sales.</p>
+      <p><strong>Email:</strong> hello@fernandfolk.test</p>
+      <p><strong>Instagram:</strong> @fernandfolkbotanicals</p>
+      <p><strong>Pickup:</strong> North Shore / Vancouver area</p>
+      <div class="notice">
+        <strong>Real business checklist:</strong> before selling widely, check local rules for cosmetics/natural health products, labelling, ingredient disclosure, insurance, and pest-control claims.
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Fern & Folk Botanicals · Handmade sprays, oils, bath goods & earthy nonsense
+</footer>
+
+</body>
+</html>
